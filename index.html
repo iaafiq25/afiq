@@ -51,47 +51,61 @@
     </div>
   </nav>
 
-  <!-- Home Section -->
-  <section class="home" id="home">
-    <div class="home-content">
-      <div class="text">
-        <div class="text-one">Hello,</div>
-        <div class="text-two">I'm IA Afiq</div>
-        <div class="text-three">UI/UX Designer</div>
-        <div class="text-four">From Nepal</div>
+ <section class="home dark-home" id="home">
+  <div class="home-content">
+    <div class="text">
+      <span class="badge">Welcome</span>
+      <h1>I'm <span>IA Afiq</span></h1>
+      <h3>UI / UX Designer</h3>
+      <p>
+        Crafting modern, clean & user-friendly digital experiences.
+      </p>
+
+      <div class="buttons">
+        <button class="primary-btn" onclick="location.href='hire.html'" >Hire Me</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- About Section -->
+ <section class="about dark-about" id="about">
+  <div class="content">
+    <div class="right">
+
+      <span class="tag">Who I Am</span>
+
+      <h2>Designing is my <span>Passion</span></h2>
+
+      <p>
+        I am IA Afiq, a UI/UX designer focused on clean, modern and
+        user-friendly digital experiences.
+      </p>
+
+      <div class="stats">
+        <div>
+          <h3>3+</h3>
+          <span>Years</span>
+        </div>
+        <div>
+          <h3>50+</h3>
+          <span>Projects</span>
+        </div>
+        <div>
+          <h3>100%</h3>
+          <span>Satisfaction</span>
+        </div>
       </div>
 
       <div class="button">
-        <button>Hire Me</button>
+        <button onclick="location.href='cv.html'">View CV</button>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div class="content">
-      <div class="title"><span>About Me</span></div>
-
-      <div class="about-details">
-        <div class="left">
-          <img src="images/about.jpg" alt="" />
-        </div>
-
-        <div class="right">
-          <div class="topic">Designing Is My Passion</div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt,
-            porro veritatis pariatur, nobis voluptatem ipsum repellat nemo
-            quisquam error reprehenderit recusandae odio vel, suscipit.
-          </p>
-
-          <div class="button">
-            <button>Download CV</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Skills Section -->
   <section class="skills" id="skills">
@@ -188,7 +202,8 @@
         <p>Lorem ipsum dolor sit amet.</p>
 
         <div class="button">
-          <button>Let's Chat</button>
+          <button onclick="openChat()">Let's Chat</button>
+
         </div>
       </div>
     </div>
@@ -205,7 +220,6 @@
 
   <script src="script.js"></script>
 </body>
-<!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
@@ -217,5 +231,13 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+
+<!-- Button click function -->
+<script>
+function openChat(){
+  Tawk_API.maximize();
+}
+</script>
+
 
 </html>

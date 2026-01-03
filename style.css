@@ -29,511 +29,175 @@
 }
 
 /* navbar styling */
+/* =========================
+   PREMIUM NAVBAR
+========================= */
+
 nav {
   position: fixed;
+  top: 0;
   width: 100%;
-  padding: 20px 0;
-  z-index: 998;
-  transition: all 0.3s ease;
+  padding: 18px 0;
+  z-index: 999;
+  transition: all 0.4s ease;
   font-family: 'Ubuntu', sans-serif;
 }
 
+/* Sticky Effect */
 nav.sticky {
-  background: #4070f4;
-  padding: 13px 0;
+  background: rgba(64,112,244,0.95);
+  backdrop-filter: blur(12px);
+  padding: 12px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
+/* Navbar container */
 nav .navbar {
   width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  max-width: 1200px;
   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+/* Logo */
 nav .navbar .logo a {
-  font-weight: 500;
-  font-size: 35px;
+  font-size: 34px;
+  font-weight: 600;
   color: #4070f4;
+  transition: color 0.3s ease;
 }
 
 nav.sticky .navbar .logo a {
   color: #fff;
 }
 
+/* Menu */
 nav .navbar .menu {
   display: flex;
-  position: relative;
+  align-items: center;
 }
 
+/* Menu items */
 nav .navbar .menu li {
   list-style: none;
-  margin: 0 20px;
+  margin: 0 18px;
 }
 
+/* Menu links */
 .navbar .menu a {
+  position: relative;
   font-size: 18px;
   font-weight: 500;
   color: #0E2431;
   padding: 6px 0;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
+}
+
+/* Hover underline animation */
+.navbar .menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background: #4070f4;
+  transition: width 0.3s ease;
+}
+
+.navbar .menu a:hover::after {
+  width: 100%;
 }
 
 .navbar .menu a:hover {
   color: #4070f4;
 }
 
+/* Sticky link color */
 nav.sticky .menu a {
-  color: #FFF;
+  color: #fff;
 }
 
-nav.sticky .menu a:hover {
-  color: #0E2431;
+nav.sticky .menu a::after {
+  background: #fff;
 }
 
+/* Social icons */
 .navbar .media-icons a {
   color: #4070f4;
   font-size: 18px;
-  margin: 0 6px;
+  margin-left: 12px;
+  transition: transform 0.3s ease;
+}
+
+.navbar .media-icons a:hover {
+  transform: translateY(-2px);
 }
 
 nav.sticky .media-icons a {
-  color: #FFF;
+  color: #fff;
 }
 
-/* Side Navigation Menu Button CSS */
+/* =========================
+   MOBILE MENU
+========================= */
+
 nav .menu-btn,
 .navbar .menu .cancel-btn {
   position: absolute;
-  color: #fff;
-  right: 30px;
-  top: 20px;
-  font-size: 20px;
+  right: 25px;
+  top: 22px;
+  font-size: 22px;
   cursor: pointer;
-  transition: all 0.3s ease;
   display: none;
-}
-
-nav .menu-btn {
   color: #4070f4;
 }
 
 nav.sticky .menu-btn {
-  color: #FFF;
-}
-
-.navbar .menu .menu-btn {
   color: #fff;
 }
 
-/* home section styling */
-.home {
-  height: 100vh;
-  width: 100%;
-  background: url("Gemini_Generated_Image_st6ncxst6ncxst6n.png") no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  font-family: 'Ubuntu', sans-serif;
-}
+/* =========================
+   RESPONSIVE
+========================= */
 
-.home .home-content {
-  width: 90%;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+@media (max-width: 768px) {
 
-.home .text-one {
-  font-size: 25px;
-  color: #0E2431;
-}
-
-.home .text-two {
-  color: #0E2431;
-  font-size: 75px;
-  font-weight: 600;
-  margin-left: -3px;
-}
-
-.home .text-three {
-  font-size: 40px;
-  margin: 5px 0;
-  color: #4070f4;
-}
-
-.home .text-four {
-  font-size: 23px;
-  margin: 5px 0;
-  color: #0E2431;
-}
-
-.home .button {
-  margin: 14px 0;
-}
-
-.home .button button {
-  outline: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 25px;
-  font-weight: 400;
-  background: #4070f4;
-  color: #fff;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.4s ease;
-}
-
-.home .button button:hover {
-  border-color: #4070f4;
-  background-color: #fff;
-  color: #4070f4;
-}
-
-/* About Section Styling */
-/* Those Elements Where We Have Apply Same CSS,
- I'm Selecting Directly 'Section Tag' and 'Class'  */
-section {
-  padding-top: 40px;
-}
-
-section .content {
-  width: 80%;
-  margin: 40px auto;
-  font-family: 'Poppins', sans-serif;
-}
-
-.about .about-details {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-section .title {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-section .title span {
-  color: #0E2431;
-  font-size: 30px;
-  font-weight: 600;
-  position: relative;
-  padding-bottom: 8px;
-}
-
-section .title span::before,
-section .title span::after {
-  content: '';
-  position: absolute;
-  height: 3px;
-  width: 100%;
-  background: #4070f4;
-  left: 0;
-  bottom: 0;
-}
-
-section .title span::after {
-  bottom: -7px;
-  width: 70%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.about .about-details .left {
-  width: 45%;
-}
-
-.about .left img {
-  height: 400px;
-  width: 400px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.about-details .right {
-  width: 55%;
-}
-
-section .topic {
-  color: #0E2431;
-  font-size: 25px;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
-.about-details .right p {
-  text-align: justify;
-  color: #0E2431;
-}
-
-section .button {
-  margin: 16px 0;
-}
-
-section .button button {
-  outline: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-size: 25px;
-  font-weight: 400;
-  background: #4070f4;
-  color: #fff;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-section .button button:hover {
-  border-color: #4070f4;
-  background-color: #fff;
-  color: #4070f4;
-}
-
-/* My Skills CSS */
-.skills {
-  background: #F0F8FF;
-}
-
-.skills .content {
-  padding: 40px 0;
-}
-
-.skills .skills-details {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.skills-details .text {
-  width: 50%;
-}
-
-.skills-details p {
-  color: #0E2431;
-  text-align: justify;
-}
-
-.skills .skills-details .experience {
-  display: flex;
-  align-items: center;
-  margin: 0 10px;
-}
-
-.skills-details .experience .num {
-  color: #0E2431;
-  font-size: 80px;
-}
-
-.skills-details .experience .exp {
-  color: #0E2431;
-  margin-left: 20px;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 0 6px;
-}
-
-.skills-details .boxes {
-  width: 45%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.skills-details .box {
-  width: calc(100% / 2 - 20px);
-  margin: 20px 0;
-}
-
-.skills-details .boxes .topic {
-  font-size: 20px;
-  color: #4070f4;
-}
-
-.skills-details .boxes .per {
-  font-size: 60px;
-  color: #4070f4;
-}
-
-/* My Services CSS */
-.services .boxes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.services .boxes .box {
-  margin: 20px 0;
-  width: calc(100% / 3 - 20px);
-  text-align: center;
-  border-radius: 12px;
-  padding: 30px 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-  cursor: default;
-  transition: all 0.4s ease;
-}
-
-.services .boxes .box:hover {
-  background: #4070f4;
-  color: #fff;
-}
-
-.services .boxes .box .icon {
-  height: 50px;
-  width: 50px;
-  background: #4070f4;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 50px;
-  font-size: 18px;
-  color: #fff;
-  margin: 0 auto 10px auto;
-  transition: all 0.4s ease;
-}
-
-.boxes .box:hover .icon {
-  background-color: #fff;
-  color: #4070f4;
-}
-
-.services .boxes .box:hover .topic,
-.services .boxes .box:hover p {
-  color: #0E2431;
-  transition: all 0.4s ease;
-}
-
-.services .boxes .box:hover .topic,
-.services .boxes .box:hover p {
-  color: #fff;
-}
-
-/* Contact Me CSS */
-.contact {
-  background: #F0F8FF;
-}
-
-.contact .content {
-  margin: 0 auto;
-  padding: 30px 0;
-}
-
-.contact .text {
-  width: 80%;
-  text-align: center;
-  margin: auto;
-}
-
-/* Footer CSS */
-footer {
-  background: #4070f4;
-  padding: 15px 0;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-}
-
-footer .text span {
-  font-size: 17px;
-  font-weight: 400;
-  color: #fff;
-}
-
-footer .text span a {
-  font-weight: 500;
-  color: #FFF;
-}
-
-footer .text span a:hover {
-  text-decoration: underline;
-}
-
-/* Scroll TO Top Button CSS */
-.scroll-button a {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  color: #fff;
-  background: #4070f4;
-  padding: 7px 12px;
-  ;
-  font-size: 18px;
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.15);
-  display: none;
-}
-
-/* Responsive Media Query */
-@media (max-width: 1190px) {
-  section .content {
-    width: 85%;
-  }
-}
-
-@media (max-width: 1000px) {
-  .about .about-details {
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .about .about-details .left {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .about-details .right {
-    width: 90%;
-    margin: 40px 0;
-  }
-
-  .services .boxes .box {
-    margin: 20px 0;
-    width: calc(100% / 2 - 20px);
-  }
-}
-
-@media (max-width: 900px) {
-  .about .left img {
-    height: 350px;
-    width: 350px;
-  }
-}
-
-@media (max-width: 750px) {
   nav .navbar {
     width: 90%;
   }
 
+  /* Slide menu */
   nav .navbar .menu {
     position: fixed;
-    left: -100%;
     top: 0;
-    background: #0E2431;
-    height: 100vh;
-    max-width: 400px;
+    left: -100%;
     width: 100%;
-    padding-top: 60px;
+    max-width: 360px;
+    height: 100vh;
+    background: #0E2431;
     flex-direction: column;
-    align-items: center;
-    transition: all 0.5s ease;
+    justify-content: center;
+    transition: left 0.4s ease;
   }
 
   .navbar.active .menu {
     left: 0;
   }
 
-  nav .navbar .menu a {
-    font-size: 23px;
-    display: block;
-    color: #fff;
-    margin: 15px 0;
+  nav .navbar .menu li {
+    margin: 18px 0;
   }
 
-  nav.sticky .menu a:hover {
-    color: #4070f4;
+  nav .navbar .menu a {
+    font-size: 22px;
+    color: #fff;
+  }
+
+  nav .navbar .menu a::after {
+    background: #4070f4;
   }
 
   nav .navbar .media-icons {
@@ -545,54 +209,726 @@ footer .text span a:hover {
     display: block;
   }
 
-  .home .text-two {
-    font-size: 65px;
+  .navbar .menu .cancel-btn {
+    color: #fff;
+    top: 25px;
   }
+}
 
-  .home .text-three {
-    font-size: 35px;
-  }
+/* home section styling */
+.dark-home {
+  min-height: 80vh;
+  background: linear-gradient(
+      rgba(0,0,0,0.75),
+      rgba(0,0,0,0.85)
+    ),
+    url("Gemini_Generated_Image_st6ncxst6ncxst6n.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  font-family: 'Ubuntu', sans-serif;
+  padding: var(--section-padding) 20px;
+}
 
-  .skills .skills-details {
+.dark-home .home-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.06);
+  border-radius: 24px;
+  padding: var(--section-inner-padding);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+}
+
+/* Text */
+.dark-home .badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #4070f4;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.dark-home h1 {
+  font-size: clamp(36px, 5vw, 60px);
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.dark-home h1 span {
+  color: #4070f4;
+}
+
+.dark-home h3 {
+  font-size: clamp(22px, 3vw, 30px);
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.dark-home p {
+  font-size: 17px;
+  color: #ccc;
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* Buttons */
+.dark-home .buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 14px 34px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background: #4070f4;
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 25px rgba(64,112,244,0.6);
+}
+
+.primary-btn:hover {
+  background: #fff;
+  color: #4070f4;
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #4070f4;
+}
+
+.secondary-btn:hover {
+  background: #4070f4;
+  color: #fff;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .dark-home {
+    padding: 60px 12px;
+    min-height: auto;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
   }
 
-  .skills-details .text {
-    width: 100%;
-    margin-bottom: 50px;
+  .dark-home .home-content {
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .dark-home p {
+    max-width: 100%;
+  }
+
+  .dark-home .buttons {
+    justify-content: center;
+  }
+}
+
+
+/* About Section Styling */
+/* Those Elements Where We Have Apply Same CSS,
+ I'm Selecting Directly 'Section Tag' and 'Class'  */
+/* ================================
+   ABOUT SECTION – PREMIUM DARK UI
+================================ */
+
+:root {
+  --primary: #4f7cff;
+  --primary-glow: rgba(79,124,255,0.55);
+
+  --glass-bg: rgba(255,255,255,0.06);
+
+  --text-white: #ffffff;
+  --text-light: #cfd6e4;
+  --text-muted: #9aa4b2;
+
+  /* Layout spacing vars */
+  --section-padding: 80px; /* default vertical padding for sections */
+  --section-padding-sm: 60px; /* medium screens */
+  --section-padding-xs: 40px; /* small screens */
+  --section-inner-padding: 40px; /* inner container padding */
+  --section-gap: 20px; /* generic gap */
+}
+
+/* Section Background */
+.about.dark-about {
+  background: linear-gradient(
+    rgba(11,15,26,0.92),
+    rgba(11,15,26,0.97)
+  );
+  padding: var(--section-padding) 20px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* Main Glass Box */
+.about.dark-about .content {
+  max-width: 1200px;
+  margin: auto;
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  border-radius: 26px;
+  padding: var(--section-inner-padding);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+
+  display: flex;
+  align-items: center;
+  min-height: 420px;
+  gap: var(--section-gap);
+}
+
+/* Text Wrapper */
+.about.dark-about .right {
+  width: 100%;
+}
+
+/* Tag */
+.about.dark-about .tag {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+/* Heading */
+.about.dark-about h2 {
+  font-size: clamp(30px, 4vw, 40px);
+  color: var(--text-white);
+  margin-bottom: 18px;
+}
+
+.about.dark-about h2 span {
+  color: var(--primary);
+}
+
+/* Paragraph */
+.about.dark-about p {
+  color: var(--text-light);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 620px;
+  margin-bottom: 30px;
+}
+
+/* Stats */
+.about.dark-about .stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.about.dark-about .stats h3 {
+  font-size: 34px;
+  color: var(--primary);
+}
+
+.about.dark-about .stats span {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Button */
+.about.dark-about .button button {
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-size: 18px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 25px var(--primary-glow);
+  transition: all 0.3s ease;
+}
+
+.about.dark-about .button button:hover {
+  background: #fff;
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+  .about.dark-about .content {
+    padding: calc(var(--section-inner-padding) - 6px);
+    min-height: auto;
+    text-align: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .about.dark-about p {
+    max-width: 100%;
+  }
+
+  .about.dark-about .stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Reduce spacing for other sections */
+  .skills, .services, .contact, .about.dark-about {
+    padding: var(--section-padding-sm) 12px;
+  }
+}
+
+/* ================================
+   SKILLS SECTION – CARD STYLE
+================================ */
+
+.skills {
+  background: linear-gradient(
+    rgba(11,15,26,0.95),
+    rgba(11,15,26,1)
+  );
+  padding: var(--section-padding) 20px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.skills .content {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Title */
+.skills .title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.skills .title span {
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  position: relative;
+}
+
+.skills .title span::before,
+.skills .title span::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 35px;
+  background: #4f7cff;
+  bottom: -10px;
+}
+
+.skills .title span::before {
+  left: -45px;
+}
+
+.skills .title span::after {
+  right: -45px;
+}
+
+/* Layout */
+.skills-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Left Text Box */
+.skills-details .text {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  padding: 50px;
+  border-radius: 30px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+.skills-details .text .topic {
+  font-size: 28px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.skills-details .text p {
+  color: #cfd6e4;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+/* Experience */
+.skills-details .experience {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.skills-details .experience .num {
+  font-size: 50px;
+  font-weight: 700;
+  color: #4f7cff;
+}
+
+.skills-details .experience .exp {
+  color: #cfd6e4;
+  font-size: 14px;
+}
+
+/* Right Boxes (Services style) */
+.skills-details .boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.skills-details .box {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  padding: 40px 30px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  transition: all 0.4s ease;
+}
+
+.skills-details .box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(79,124,255,0.6);
+}
+
+/* Skill Name */
+.skills-details .box .topic {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* Percentage */
+.skills-details .box .per {
+  font-size: 30px;
+  font-weight: 700;
+  color: #4f7cff;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+  .skills-details {
+    grid-template-columns: 1fr;
   }
 
   .skills-details .boxes {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    grid-template-columns: 1fr;
   }
 
-  .services .boxes .box {
-    margin: 20px 0;
-    width: 100%;
+  .skills-details .text {
+    text-align: center;
+  }
+
+  .skills-details .experience {
+    justify-content: center;
+  }
+}
+
+
+/* My Services CSS */
+/* ================================
+   SERVICES SECTION – PREMIUM DARK
+================================ */
+
+.services {
+  background: linear-gradient(
+    rgba(11,15,26,0.92),
+    rgba(11,15,26,0.98)
+  );
+  padding: var(--section-padding) 20px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* Container */
+.services .content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Section Title */
+.services .title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.services .title span {
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  position: relative;
+}
+
+.services .title span::before,
+.services .title span::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 30px;
+  background: #4f7cff;
+  bottom: -8px;
+}
+
+.services .title span::before {
+  left: -40px;
+}
+
+.services .title span::after {
+  right: -40px;
+}
+
+/* Service Boxes Grid */
+.services .boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Service Box */
+.services .box {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(14px);
+  border-radius: 26px;
+  padding: 45px 30px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.55);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Glow */
+.services .box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(79,124,255,0.35), transparent 60%);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.services .box:hover::before {
+  opacity: 1;
+}
+
+.services .box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 35px rgba(79,124,255,0.6);
+}
+
+/* Icon */
+.services .icon {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f7cff, #6ea0ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(79,124,255,0.7);
+  margin-bottom: 25px;
+}
+
+.services .icon i {
+  font-size: 30px;
+  color: #fff;
+}
+
+/* Topic */
+.services .box .topic {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+/* Text */
+.services .box p {
+  color: #cfd6e4;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1000px) {
+  .services .boxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .services .boxes {
+    grid-template-columns: 1fr;
+  }
+
+  .services .box {
+    padding: 40px 25px;
+  }
+}
+
+
+/* Contact Me CSS */
+/* ================================
+   CONTACT SECTION – PREMIUM DARK
+================================ */
+
+.contact {
+  background: linear-gradient(
+    rgba(11,15,26,0.95),
+    rgba(11,15,26,1)
+  );
+  padding: var(--section-padding) 20px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.contact .content {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Title */
+.contact .title {
+  margin-bottom: 50px;
+}
+
+.contact .title span {
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  position: relative;
+}
+
+.contact .title span::before,
+.contact .title span::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: #4f7cff;
+  bottom: -8px;
+}
+
+.contact .title span::before {
+  left: -40px;
+}
+
+.contact .title span::after {
+  right: -40px;
+}
+
+/* Text Box */
+.contact .text {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 30px;
+  padding: var(--section-inner-padding);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* Topic */
+.contact .topic {
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* Paragraph */
+.contact p {
+  color: #cfd6e4;
+  font-size: 16px;
+  margin-bottom: 35px;
+}
+
+/* Button */
+.contact .button button {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #4f7cff, #6ea0ff);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(79,124,255,0.7);
+  transition: all 0.35s ease;
+}
+
+.contact .button button:hover {
+  background: #fff;
+  color: #4f7cff;
+  transform: translateY(-4px);
+  box-shadow: 0 0 40px rgba(79,124,255,0.9);
+}
+
+/* ================================
+   FOOTER – PREMIUM
+================================ */
+
+footer {
+  background: #0b0f1a;
+  padding: 25px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+footer .text span {
+  color: #cfd6e4;
+  font-size: 14px;
+}
+
+footer .text span a {
+  color: #4f7cff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer .text span a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 600px) {
+  .about.dark-about, .skills, .services, .contact {
+    padding: var(--section-padding-xs) 12px;
   }
 
   .contact .text {
-    width: 100%;
+    padding: calc(var(--section-inner-padding) - 4px);
+  }
+
+  .contact .topic {
+    font-size: 24px;
+  }
+
+  footer {
+    padding: 18px 12px;
   }
 }
-
-@media (max-width: 500px) {
-  .home .text-two {
-    font-size: 55px;
-  }
-
-  .home .text-three {
-    font-size: 33px;
-  }
-
-  .skills-details .boxes .per {
-    font-size: 50px;
-    color: #4070f4;
-  }
-
-}
-

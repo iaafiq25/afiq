@@ -1,0 +1,64 @@
+body {
+  background: #0b0f1a;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 40px;
+}
+
+.cv-box {
+  max-width: 900px;
+  margin: auto;
+  background: rgba(255,255,255,0.05);
+  padding: 60px;
+  border-radius: 25px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.7);
+}
+
+.cv-box h1 {
+  font-size: 48px;
+}
+
+.cv-box h1 span {
+  color: #4070f4;
+}
+
+.cv-box h3 {
+  color: #aaa;
+  margin-bottom: 40px;
+}
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.cv-box h2 {
+  margin-bottom: 10px;
+  color: #4070f4;
+}
+
+.cv-box ul {
+  list-style: none;
+}
+
+.cv-box ul li {
+  margin-bottom: 8px;
+}
+
+.download {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 14px 36px;
+  background: linear-gradient(90deg, #4070f4, #6f8cff);
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cv-grid {
+    grid-template-columns: 1fr;
+  }
+}
