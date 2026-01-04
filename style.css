@@ -9,6 +9,15 @@
   scroll-behavior: smooth;
 }
 
+/* FORCE CUSTOM CURSOR */
+* {
+  cursor: url("./cursor.svg") 2 2, auto !important;
+}
+
+a, button {
+  cursor: url("./cursor.svg") 2 2, pointer !important;
+}
+
 /* Custom Scroll Bar CSS */
 ::-webkit-scrollbar {
   width: 10px;
@@ -27,6 +36,47 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #4070f4;
 }
+
+* {
+  transition: background-color .3s ease,
+              color .3s ease,
+              transform .3s ease,
+              box-shadow .3s ease;
+}
+
+.dark-home .home-content,
+.about.dark-about .content,
+.skills-details .text,
+.skills-details .box,
+.services .box,
+.contact .text {
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+@keyframes floaty {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.primary-btn,
+.services .icon,
+.skills-details .box {
+  animation: floaty 4s ease-in-out infinite;
+}
+
+.primary-btn:hover,
+.services .box:hover,
+.skills-details .box:hover {
+  animation-play-state: paused;
+}
+
+.home { animation-delay: .1s; }
+.about { animation-delay: .2s; }
+.skills { animation-delay: .3s; }
+.services { animation-delay: .4s; }
+.contact { animation-delay: .5s; }
+
 
 /* navbar styling */
 /* =========================
@@ -440,6 +490,19 @@ nav.sticky .menu-btn {
 .about.dark-about .stats span {
   font-size: 14px;
   color: var(--text-muted);
+}
+
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: sectionFade .8s ease forwards;
+}
+
+@keyframes sectionFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Button */

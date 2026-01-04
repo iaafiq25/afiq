@@ -44,3 +44,4 @@ let navLinks = document.querySelectorAll(".menu li a");
 navLinks.forEach((link) => {
   link.addEventListener("click", hideNavMenu);
 });
+
