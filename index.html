@@ -262,12 +262,9 @@
 
         <div class="buttons">
           <button class="primary" onclick="openChat()">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-          </button>
+  💬 Let’s Start
+</button>
 
-          <button class="secondary" onclick="sendEmail()">
-            <i class="fas fa-envelope"></i> Email
-          </button>
         </div>
       </div>
 
@@ -363,13 +360,14 @@ window.smartsupp||(function(d) {
 <script>smartsupp('group', 'aqvcStQdj6'); //group A F I Q </script>
 <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
 
-
-<!-- Button click function -->
 <script>
 function openChat(){
-  Tawk_API.maximize();
+  if (window.smartsupp) {
+    smartsupp('chat:open');
+  }
 }
 </script>
+
 
 
 </html>
