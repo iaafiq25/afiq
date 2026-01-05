@@ -38,3 +38,30 @@ document.querySelectorAll(".menu a").forEach(link => {
     document.body.style.overflow = "auto";
   });
 });
+
+const chatBtn = document.getElementById("chatBtn");
+const formBtn = document.getElementById("formBtn");
+const chatView = document.querySelector(".chat-view");
+const formView = document.querySelector(".form-view");
+
+chatBtn.onclick = () => {
+  chatBtn.classList.add("active");
+  formBtn.classList.remove("active");
+  chatView.classList.add("active");
+  formView.classList.remove("active");
+};
+
+formBtn.onclick = () => {
+  formBtn.classList.add("active");
+  chatBtn.classList.remove("active");
+  formView.classList.add("active");
+  chatView.classList.remove("active");
+};
+
+function openChat() {
+  window.open("https://wa.me/880XXXXXXXXX", "_blank");
+}
+
+function sendEmail() {
+  window.location.href = "mailto:yourmail@gmail.com";
+}
