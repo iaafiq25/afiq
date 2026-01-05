@@ -67,8 +67,12 @@ a, button {
   padding: 1px;
   border-radius: inherit;
   background: linear-gradient(120deg, #4f7cff, #8b5cf6, #38bdf8);
-  -webkit-mask: linear-gradient(#000 0 0) content-box,
-                linear-gradient(#000 0 0);
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+    mask: 
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: .5;
