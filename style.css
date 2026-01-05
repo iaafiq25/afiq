@@ -77,91 +77,140 @@ a, button {
 .services { animation-delay: .4s; }
 .contact { animation-delay: .5s; }
 
+.scroll-button {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 999;
+  display: none;
+}
 
-/* navbar styling */
+.scroll-button a {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 10px 25px rgba(99,102,241,0.35);
+  animation: floatBtn 2s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.scroll-button a:hover {
+  transform: scale(1.08);
+  box-shadow: 0 15px 35px rgba(99,102,241,0.45);
+}
+
+/* floating animation */
+@keyframes floatBtn {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
 /* =========================
    PREMIUM NAVBAR
 ========================= */
+/* =====================
+   NAVBAR BASE
+===================== */
 
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 18px 0;
+  height: 70px;
   z-index: 999;
-  transition: all 0.4s ease;
   font-family: 'Ubuntu', sans-serif;
+  transition: all 0.4s ease;
 }
 
-/* Sticky Effect */
-nav.sticky {
-  background: rgba(64,112,244,0.95);
-  backdrop-filter: blur(12px);
-  padding: 12px 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  transition: 0.4s ease;
+  z-index: -1;
 }
 
-/* Navbar container */
+/* Sticky effect */
+nav.sticky::before {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* =====================
+   NAVBAR CONTAINER
+===================== */
+
 nav .navbar {
   width: 90%;
   max-width: 1200px;
+  height: 100%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Logo */
-nav .navbar .logo a {
-  font-size: 34px;
+/* =====================
+   LOGO
+===================== */
+
+nav .logo a {
+  font-size: 28px;
   font-weight: 600;
   color: #4070f4;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
-nav.sticky .navbar .logo a {
+nav.sticky .logo a {
   color: #fff;
 }
 
-/* Menu */
-nav .navbar .menu {
+/* =====================
+   MENU (DESKTOP)
+===================== */
+
+.menu {
   display: flex;
   align-items: center;
 }
 
-/* Menu items */
-nav .navbar .menu li {
+.menu li {
   list-style: none;
   margin: 0 18px;
 }
 
-/* Menu links */
-.navbar .menu a {
+.menu a {
   position: relative;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 500;
   color: #0E2431;
+  text-decoration: none;
   padding: 6px 0;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
-/* Hover underline animation */
-.navbar .menu a::after {
-  content: '';
+.menu a::after {
+  content: "";
   position: absolute;
   left: 0;
   bottom: -4px;
-  height: 2px;
   width: 0;
+  height: 2px;
   background: #4070f4;
   transition: width 0.3s ease;
 }
 
-.navbar .menu a:hover::after {
+.menu a:hover::after {
   width: 100%;
 }
 
-.navbar .menu a:hover {
+.menu a:hover {
   color: #4070f4;
 }
 
@@ -174,15 +223,18 @@ nav.sticky .menu a::after {
   background: #fff;
 }
 
-/* Social icons */
-.navbar .media-icons a {
+/* =====================
+   SOCIAL ICONS
+===================== */
+
+.media-icons a {
   color: #4070f4;
   font-size: 18px;
-  margin-left: 12px;
+  margin-left: 14px;
   transition: transform 0.3s ease;
 }
 
-.navbar .media-icons a:hover {
+.media-icons a:hover {
   transform: translateY(-2px);
 }
 
@@ -190,80 +242,85 @@ nav.sticky .media-icons a {
   color: #fff;
 }
 
-/* =========================
-   MOBILE MENU
-========================= */
+/* =====================
+   MOBILE BUTTONS
+===================== */
 
-nav .menu-btn,
-.navbar .menu .cancel-btn {
-  position: absolute;
-  right: 25px;
-  top: 22px;
-  font-size: 22px;
-  cursor: pointer;
+.menu-btn,
+.cancel-btn {
   display: none;
-  color: #4070f4;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-nav.sticky .menu-btn {
-  color: #fff;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
+/* =====================
+   MOBILE MENU
+===================== */
 
 @media (max-width: 768px) {
 
-  nav .navbar {
-    width: 90%;
+  .media-icons {
+    display: none;
   }
 
-  /* Slide menu */
-  nav .navbar .menu {
+  .menu-btn {
+    display: block;
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4070f4;
+  }
+
+  nav.sticky .menu-btn {
+    color: #fff;
+  }
+
+  .menu {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 100%;
-    max-width: 360px;
+    width: 85%;
+    max-width: 340px;
     height: 100vh;
-    background: #0E2431;
+
+    background: linear-gradient(180deg, #0f172a, #020617);
+    backdrop-filter: blur(12px);
+
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+
     transition: left 0.4s ease;
+    box-shadow: 20px 0 40px rgba(0,0,0,0.6);
   }
 
   .navbar.active .menu {
     left: 0;
   }
 
-  nav .navbar .menu li {
-    margin: 18px 0;
+  .menu li {
+    margin: 16px 0;
   }
 
-  nav .navbar .menu a {
+  .menu a {
     font-size: 22px;
-    color: #fff;
+    color: #e5e7eb;
   }
 
-  nav .navbar .menu a::after {
-    background: #4070f4;
+  .menu a:hover {
+    color: #60a5fa;
   }
 
-  nav .navbar .media-icons {
-    display: none;
-  }
-
-  nav .menu-btn,
-  .navbar .menu .cancel-btn {
+  .cancel-btn {
     display: block;
-  }
-
-  .navbar .menu .cancel-btn {
+    position: absolute;
+    top: 22px;
+    right: 22px;
     color: #fff;
-    top: 25px;
   }
 }
+
 
 /* home section styling */
 .dark-home {
