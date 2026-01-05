@@ -1,51 +1,40 @@
-// Sticky Navigation Menu
-let nav = document.querySelector("nav");
-let scrollBtn = document.querySelector(".scroll-button a") || null;
+const nav = document.querySelector("nav");
+const navbar = document.querySelector(".navbar");
+const menuBtn = document.querySelector(".menu-btn");
+const cancelBtn = document.querySelector(".cancel-btn");
 
+/* sticky nav */
 window.addEventListener("scroll", () => {
-  if (document.documentElement.scrollTop > 20) {
-    nav.classList.add("sticky");
-    if (scrollBtn) scrollBtn.style.display = "block";
-  } else {
-    nav.classList.remove("sticky");
-    if (scrollBtn) scrollBtn.style.display = "none";
-  }
+  nav.classList.toggle("sticky", window.scrollY > 20);
 });
 
-// Side Navigation Menu
-let body = document.querySelector("body");
-let navBar = document.querySelector(".navbar");
-let menuBtn = document.querySelector(".menu-btn");
-let cancelBtn = document.querySelector(".cancel-btn");
+/* open menu */
+menuBtn.addEventListener("click", () => {
+  navbar.classList.add("active");
+  document.body.style.overflow = "hidden";
+});
 
-menuBtn.onclick = () => {
-  navBar.classList.add("active");
-  menuBtn.style.opacity = "0";
-  menuBtn.style.pointerEvents = "none";
-  body.style.overflow = "hidden";
-  if (scrollBtn) scrollBtn.style.pointerEvents = "none";
-};
+/* close menu */
+cancelBtn.addEventListener("click", () => {
+  navbar.classList.remove("active");
+  document.body.style.overflow = "auto";
+});
 
-const hideNavMenu = () => {
-  navBar.classList.remove("active");
-  menuBtn.style.opacity = "1";
-  menuBtn.style.pointerEvents = "auto";
-  body.style.overflow = "auto";
-  if (scrollBtn) scrollBtn.style.pointerEvents = "auto";
-};
-
-cancelBtn.onclick = hideNavMenu;
-
-// Close menu when link clicked
-document.querySelectorAll(".menu li a").forEach(link => {
-  link.addEventListener("click", hideNavMenu);
+/* auto close on link click */
+document.querySelectorAll(".menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    navbar.classList.remove("active");
+    document.body.style.overflow = "auto";
+  });
 });
 
 
-window.onscroll = () => {
-  if (document.documentElement.scrollTop > 20) {
-    scrollBtn.style.display = "block";
-  } else {
-    scrollBtn.style.display = "none";
-  }
-};
+/* =====================
+   AUTO CLOSE ON LINK CLICK
+===================== */
+document.querySelectorAll(".menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    navbar.classList.remove("active");
+    document.body.style.overflow = "auto";
+  });
+});
