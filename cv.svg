@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f7cff"/>
+      <stop offset="100%" stop-color="#7c5cff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- soft blob background -->
+  <path
+    d="M32 4
+       C45 4 60 12 60 28
+       C60 44 48 60 32 60
+       C16 60 4 48 4 32
+       C4 16 19 4 32 4Z"
+    fill="url(#grad)"
+  />
+
+  <!-- cute dot -->
+  <circle cx="44" cy="20" r="4" fill="#ffffff" opacity="0.85"/>
+
+  <!-- IA text -->
+  <text
+    x="32"
+    y="42"
+    text-anchor="middle"
+    font-size="26"
+    font-weight="700"
+    font-family="Ubuntu, sans-serif"
+    fill="#ffffff">
+    IA
+  </text>
+</svg>
