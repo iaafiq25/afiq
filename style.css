@@ -242,7 +242,8 @@ nav.sticky .logo a{color:#fff}
   margin:0 18px;
 }
 .menu a{
-  color:#0E2431;
+  color:#ffffff;
+  font-size: bold;
   position:relative;
 }
 .menu a::after{
@@ -1029,218 +1030,15 @@ nav.sticky .media-icons a{color:#fff}
 }
 
 
-/*/* ================================
-   CONTACT SECTION – FULL PREMIUM
-================================ */
-
-.contact.dark-contact {
-  background: linear-gradient(rgba(11,15,26,0.95), rgba(11,15,26,1));
-  padding: var(--section-padding,80px) 20px;
-  font-family: 'Ubuntu', sans-serif;
-}
-
-.contact .content {
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-
-/* TITLE */
-.contact .title span {
-  font-size: 32px;
-  font-weight: 600;
-  color: #fff;
-  position: relative;
-}
-
-.contact .title span::before,
-.contact .title span::after {
-  content: '';
-  position: absolute;
-  width: 30px;
-  height: 3px;
-  background: #4f7cff;
-  bottom: -10px;
-}
-
-.contact .title span::before { left: -40px; }
-.contact .title span::after { right: -40px; }
-
-/* BOX */
-.contact-box {
-  position: relative;
-  margin-top: 50px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(18px);
-  border-radius: 32px;
-  padding: 40px;
-  box-shadow: 0 35px 90px rgba(0,0,0,0.6);
-  overflow: hidden;
-}
-
-/* GLOW */
-.contact-glow {
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle, rgba(79,124,255,0.45), transparent 70%);
-  filter: blur(60px);
-  z-index: -1;
-  animation: floatGlow 8s ease-in-out infinite;
-}
-
-.glow-1 { top: -80px; left: -60px; }
-.glow-2 { bottom: -80px; right: -60px; animation-delay: 4s; }
-
-@keyframes floatGlow {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-30px); }
-  100% { transform: translateY(0); }
-}
-
-/* SWITCH */
-.contact-switch {
-  display: flex;
-  background: rgba(255,255,255,0.1);
-  border-radius: 30px;
-  padding: 6px;
-  margin-bottom: 30px;
-}
-
-.switch-btn {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  border-radius: 25px;
-  background: transparent;
-  color: #cfd6e4;
-  cursor: pointer;
-  transition: .3s;
-}
-
-.switch-btn.active {
-  background: linear-gradient(135deg,#4f7cff,#6ea0ff);
-  color: #fff;
-  box-shadow: 0 0 20px rgba(79,124,255,.6);
-}
-
-/* VIEW */
-.contact-view { display: none; animation: fadeSlide .4s ease; }
-.contact-view.active { display: block; }
-
-/* CHAT */
-.chat-view .topic {
-  font-size: 28px;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.chat-view p {
-  color: #cfd6e4;
-  max-width: 600px;
-  margin: auto auto 30px;
-}
-
-/* BUTTONS */
-.contact button {
-  padding: 14px 34px;
-  border-radius: 30px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: .3s;
-}
-
-.primary {
-  background: linear-gradient(135deg,#4f7cff,#6ea0ff);
-  border: none;
-  color: #fff;
-  box-shadow: 0 0 25px rgba(79,124,255,0.7);
-}
-
-.primary:hover {
-  background: #fff;
-  color: #4f7cff;
-  transform: translateY(-3px);
-}
-
-.secondary {
-  background: transparent;
-  border: 2px solid #4f7cff;
-  color: #fff;
-}
-
-/* FORM */
-.contact-form {
-  max-width: 520px;
-  margin: auto;
-}
-
-.input-group {
-  position: relative;
-  margin-bottom: 25px;
-}
-
-.input-group input,
-.input-group textarea {
-  width: 100%;
-  padding: 14px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: #fff;
-  outline: none;
-}
-
-.input-group input:focus,
-.input-group textarea:focus {
-  border-color: #4f7cff;
-  box-shadow: 0 0 18px rgba(79,124,255,0.6);
-}
-
-.input-group label {
-  position: absolute;
-  top: 50%;
-  left: 14px;
-  transform: translateY(-50%);
-  color: #9aa4b2;
-  pointer-events: none;
-  transition: .3s;
-}
-
-.input-group input:focus + label,
-.input-group textarea:focus + label,
-.input-group input:valid + label,
-.input-group textarea:valid + label {
-  top: -8px;
-  font-size: 12px;
-  color: #4f7cff;
-  background: #0b0f1a;
-  padding: 0 6px;
-}
-
-/* SUCCESS */
-.form-success {
-  display: none;
-  margin-top: 15px;
-  color: #4f7cff;
-}
-
-/* ANIM */
-@keyframes fadeSlide {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* ================================
-   CONTACT SECTION – PREMIUM FIXED
+   CONTACT SECTION – FINAL PREMIUM
 ================================ */
 
 .contact.dark-contact{
   background:linear-gradient(180deg,rgba(11,15,26,.96),rgba(11,15,26,1));
   padding:80px 20px;
   font-family:'Ubuntu',sans-serif;
+  overflow-x:hidden;
 }
 
 .contact .content{
@@ -1251,7 +1049,7 @@ nav.sticky .media-icons a{color:#fff}
 
 /* ===== TITLE ===== */
 .contact .title span{
-  font-size:clamp(26px,4vw,34px);
+  font-size:clamp(24px,4vw,34px);
   font-weight:600;
   color:#fff;
   position:relative;
@@ -1275,7 +1073,7 @@ nav.sticky .media-icons a{color:#fff}
 .contact-box{
   position:relative;
   margin-top:55px;
-  background:rgba(255,255,255,0.085);
+  background:rgba(255,255,255,.085);
   backdrop-filter:blur(20px);
   border-radius:34px;
   padding:50px 45px;
@@ -1347,6 +1145,7 @@ nav.sticky .media-icons a{color:#fff}
   max-width:620px;
   margin:0 auto 32px;
   line-height:1.7;
+  font-size:15px;
 }
 
 /* ===== BUTTONS ===== */
@@ -1421,7 +1220,6 @@ nav.sticky .media-icons a{color:#fff}
   color:#9aa4b2;
   pointer-events:none;
   transition:.35s ease;
-  background:transparent;
 }
 
 .input-group input:focus + label,
@@ -1443,19 +1241,203 @@ nav.sticky .media-icons a{color:#fff}
   font-size:15px;
 }
 
-/* ===== ANIM ===== */
+/* ===== ANIMATION ===== */
 @keyframes fadeSlide{
   from{opacity:0;transform:translateY(28px);}
   to{opacity:1;transform:translateY(0);}
 }
 
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  .contact-box{
-    padding:40px 26px;
+/* ================================
+   MOBILE PERFECT FIX
+================================ */
+
+/* Phones */
+@media (max-width:576px){
+
+  .contact.dark-contact{
+    padding:60px 14px;
   }
+
+  .contact-box{
+    padding:32px 20px;
+    border-radius:24px;
+  }
+
+  .contact .title span{
+    font-size:24px;
+  }
+
+  .contact .title span::before,
+  .contact .title span::after{
+    width:22px;
+  }
+
+  .contact .title span::before{left:-28px;}
+  .contact .title span::after{right:-28px;}
+
   .contact-switch{
-    flex-direction:column;
+    padding:6px;
+    border-radius:999px;
+  }
+
+  .switch-btn{
+    flex:1;
+    padding:12px 0;
+    font-size:14px;
+    text-align:center;
+  }
+
+  .chat-view .topic{
+    font-size:22px;
+  }
+
+  .chat-view p{
+    font-size:14px;
+    margin-bottom:24px;
+  }
+
+  .contact button{
+    width:100%;
+    justify-content:center;
+    font-size:14px;
+    padding:14px;
+  }
+
+  .input-group input,
+  .input-group textarea{
+    padding:14px 12px;
+    font-size:14px;
+    border-radius:14px;
+  }
+
+  .input-group label{
+    left:12px;
+    font-size:13px;
+  }
+
+  .contact-glow{
+    width:200px;
+    height:200px;
+    filter:blur(55px);
+  }
+}
+
+/* Tablets */
+@media (max-width:768px){
+  .contact-box{
+    padding:40px 28px;
+  }
+}
+/* ================================
+   CUTE MESSAGE BOX – SUCCESS
+================================ */
+
+.cute-success-box{
+  display:none;
+  margin-top:22px;
+  padding:22px 18px;
+  border-radius:20px;
+  background:rgba(79,124,255,.15);
+  border:1px solid rgba(79,124,255,.35);
+  backdrop-filter:blur(10px);
+  text-align:center;
+  animation:popCute .5s ease;
+}
+
+.cute-success-box .cute-icon{
+  font-size:38px;
+  margin-bottom:8px;
+  animation:heartBeat 1.2s infinite;
+}
+
+.cute-success-box h4{
+  color:#fff;
+  font-size:18px;
+  margin-bottom:6px;
+}
+
+.cute-success-box p{
+  color:#cfd6e4;
+  font-size:14px;
+  line-height:1.5;
+}
+
+/* ================================
+   CUTE MESSAGE BOX – ERROR
+================================ */
+
+.cute-error-box{
+  display:none;
+  margin-top:22px;
+  padding:22px 18px;
+  border-radius:20px;
+  background:rgba(255,80,80,.12);
+  border:1px solid rgba(255,80,80,.35);
+  backdrop-filter:blur(10px);
+  text-align:center;
+  animation:shakeCute .45s ease;
+}
+
+.cute-error-box .cute-icon{
+  font-size:36px;
+  margin-bottom:8px;
+  animation:sadBounce 1.4s infinite;
+}
+
+.cute-error-box h4{
+  color:#fff;
+  font-size:17px;
+  margin-bottom:6px;
+}
+
+.cute-error-box p{
+  color:#ffd1d1;
+  font-size:14px;
+  line-height:1.5;
+}
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes popCute{
+  from{opacity:0;transform:scale(.85);}
+  to{opacity:1;transform:scale(1);}
+}
+
+@keyframes heartBeat{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.15);}
+  100%{transform:scale(1);}
+}
+
+@keyframes shakeCute{
+  0%{transform:translateX(0);}
+  25%{transform:translateX(-6px);}
+  50%{transform:translateX(6px);}
+  75%{transform:translateX(-4px);}
+  100%{transform:translateX(0);}
+}
+
+@keyframes sadBounce{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(6px);}
+  100%{transform:translateY(0);}
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:576px){
+  .cute-success-box,
+  .cute-error-box{
+    padding:18px 14px;
+  }
+
+  .cute-success-box .cute-icon,
+  .cute-error-box .cute-icon{
+    font-size:32px;
   }
 }
 

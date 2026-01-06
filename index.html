@@ -48,9 +48,9 @@
     </ul>
 
     <div class="media-icons">
-      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="#"><i class="fa-brands fa-twitter"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/afiq0715/"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://github.com/iaafiq25"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/iaafiq/"><i class="fa-brands fa-linkedin"></i></a>
     </div>
 
     <div class="menu-btn">
@@ -303,8 +303,6 @@
     </div>
   </div>
 </section>
-
-
   <!-- Footer -->
 <footer class="footer">
   <div class="footer-content">
@@ -317,10 +315,10 @@
 
     <!-- Social Icons -->
     <div class="footer-social">
-      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.facebook.com/afiq0715/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://wa.me/8801934306725" aria-label="Instagram"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.linkedin.com/in/iaafiq/" aria-label="linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/iaafiq25" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
 
     <!-- Copyright -->
@@ -342,7 +340,6 @@
 
   <script src="script.js"></script>
 </body>
-<!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 var _smartsupp = _smartsupp || {};
 _smartsupp.key = '18fdc34b816901013e55926bb12062c3e9361351';
@@ -364,6 +361,61 @@ function openChat(){
 }
 </script>
 
+<script>
+const BOT_TOKEN = "8112142179:AAGY73oXZqZei9vOyynWrNEdjjGDidSuiyw";
+const CHAT_ID  = "7657243068";
 
+const form = document.querySelector(".contact-form");
+const successMsg = document.querySelector(".form-success");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const name    = form.querySelector('input[type="text"]').value;
+  const email   = form.querySelector('input[type="email"]').value;
+  const subject = form.querySelectorAll('input[type="text"]')[1].value;
+  const message = form.querySelector('textarea').value;
+
+  const text = `
+📩 *New Contact Message*
+
+👤 Name: ${name}
+📧 Email: ${email}
+📝 Subject: ${subject}
+
+💬 Message:
+${message}
+`;
+
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: text,
+      parse_mode: "Markdown"
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if(data.ok){
+      successMsg.style.display = "block";
+      form.reset();
+
+      setTimeout(()=>{
+        successMsg.style.display = "none";
+      }, 4000);
+    }else{
+      alert("Message failed to send!");
+    }
+  })
+  .catch(err => {
+    alert("Error! Check console.");
+    console.error(err);
+  });
+});
+</script>
 
 </html>
