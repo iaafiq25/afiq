@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <title>Hire Me | IA Afiq</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="hire.css">
 </head>
 <body>
 
 <section class="hire-hero">
-  <div class="hire-box">
+
+  <!-- ===== HIRE BOX ===== -->
+  <div class="hire-box" id="hireBox">
     <span class="tag">Available for Work</span>
     <h1>Hire <span>IA Afiq</span></h1>
     <p>
@@ -28,7 +31,6 @@
           <li>Responsive Design</li>
         </ul>
       </div>
-
       <div>
         <h3>Why Me?</h3>
         <ul>
@@ -41,11 +43,117 @@
     </div>
 
     <div class="actions">
-      <a href="mailto:yourmail@gmail.com" class="btn primary">Email Me</a>
-      <a href="index.html#contact" class="btn secondary">Contact Page</a>
+      <button class="btn primary" onclick="openContact()">Contact Me</button>
     </div>
   </div>
+
+  <!-- ===== CONTACT BOX ===== -->
+  <div class="hire-box hidden" id="contactBox">
+    <span class="tag">Get in Touch</span>
+    <h1>Contact <span>Me</span></h1>
+    <p>Send me a message and I’ll reply shortly.</p>
+
+    <form class="contact-form" onsubmit="sendToTelegram(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+
+      <div class="actions">
+        <button type="submit" class="btn primary">Send Message</button>
+        <button type="button" class="btn secondary" onclick="openHire()">Back</button>
+      </div>
+    </form>
+  </div>
+
 </section>
+
+<!-- ===== SUCCESS POPUP ===== -->
+<div class="success-box" id="successBox">
+  <div class="success-card">
+    <div class="icon">✓</div>
+    <h2>Message Sent</h2>
+    <p>Your message has been sent to my Telegram.</p>
+    <button onclick="closeSuccess()">OK</button>
+  </div>
+</div>
+
+<!-- ===== ERROR POPUP ===== -->
+<div class="error-box" id="errorBox">
+  <div class="error-card">
+    <div class="icon">!</div>
+    <h2>Message Failed</h2>
+    <p>Something went wrong. Please try again.</p>
+    <button onclick="closeError()">Close</button>
+  </div>
+</div>
+
+<script>
+/* ===== ELEMENTS ===== */
+const hireBox = document.getElementById("hireBox");
+const contactBox = document.getElementById("contactBox");
+const successBox = document.getElementById("successBox");
+const errorBox = document.getElementById("errorBox");
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const messageInput = document.getElementById("message");
+
+/* ===== BOX SWITCH ===== */
+function openContact(){
+  hireBox.classList.add("hidden");
+  contactBox.classList.remove("hidden");
+}
+
+function openHire(){
+  contactBox.classList.add("hidden");
+  hireBox.classList.remove("hidden");
+}
+
+/* ===== TELEGRAM SEND ===== */
+function sendToTelegram(e){
+  e.preventDefault();
+
+  const BOT_TOKEN = "8112142179:AAGY73oXZqZei9vOyynWrNEdjjGDidSuiyw";
+  const CHAT_ID  = "7657243068";
+
+  const text =
+`📩 New Contact Message
+
+👤 Name: ${nameInput.value}
+📧 Email: ${emailInput.value}
+
+💬 Message:
+${messageInput.value}`;
+
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: text
+    })
+  })
+  .then(res => {
+    if(!res.ok) throw new Error("Failed");
+    successBox.classList.add("show");
+    e.target.reset();
+    openHire();
+    setTimeout(closeSuccess, 3000);
+  })
+  .catch(() => {
+    errorBox.classList.add("show");
+    setTimeout(closeError, 3000);
+  });
+}
+
+/* ===== CLOSE POPUPS ===== */
+function closeSuccess(){
+  successBox.classList.remove("show");
+}
+function closeError(){
+  errorBox.classList.remove("show");
+}
+</script>
 
 </body>
 </html>
