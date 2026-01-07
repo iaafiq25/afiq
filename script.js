@@ -65,57 +65,6 @@ function openChat() {
 function sendEmail() {
   window.location.href = "mailto:yourmail@gmail.com";
 }
-/* =========================
-   GLOBAL SECURITY SYSTEM
-========================= */
-(function () {
-
-  /* Disable right click */
-  document.addEventListener("contextmenu", e => e.preventDefault());
-
-  /* Disable inspect shortcuts */
-  document.addEventListener("keydown", e => {
-    if (
-      e.key === "F12" ||
-      (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
-      (e.ctrlKey && e.key === "U")
-    ) {
-      e.preventDefault();
-      blockPage();
-    }
-  });
-
-  /* DevTools detection */
-  setInterval(() => {
-    if (
-      window.outerWidth - window.innerWidth > 160 ||
-      window.outerHeight - window.innerHeight > 160
-    ) {
-      blockPage();
-    }
-  }, 600);
-
-  /* Prevent iframe embedding */
-  if (top !== self) {
-    top.location = self.location;
-  }
-
-  function blockPage() {
-    document.body.innerHTML = `
-      <div style="
-        height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        background:#020617;
-        color:#fff;
-        font-size:24px;
-        font-family:sans-serif">
-        ⚠ Access Blocked
-      </div>`;
-  }
-
-})();
 
 
 /* =========================
